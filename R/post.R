@@ -1,4 +1,4 @@
-#' Piost issue to GitHub repository
+#' Post issue to GitHub repository
 #'
 #' @inherit post_engine params
 #' @param title Issue title (required)
@@ -68,7 +68,7 @@ post_issue <- function(ref, title, ..., distinct = TRUE){
 
 
 
-#' Update issue in github repository
+#' Update issue in GitHub repository
 #'
 #' @inherit post_engine params
 #' @param issue_number Issue number
@@ -85,12 +85,12 @@ post_issue <- function(ref, title, ..., distinct = TRUE){
 #'   labels = c('priority:high', 'bug'))
 #' }
 
-update_issue <- function(ref, issue_number, ...){
+post_issue_update <- function(ref, issue_number, ...){
 
   # check that rest of inputs are valid per github api ----
 
   args <- list(...)
-  validate_inputs(args, allowed_vars = help_update_issue() )
+  validate_inputs(args, allowed_vars = help_post_issue_update() )
   if (length(args[['labels']] == 1)) {args[["labels"]] <- I(args[["labels"]])}
   if (length(args[['assignees']] == 1)) {args[["assignees"]] <- I(args[["assignees"]])}
 
